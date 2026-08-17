@@ -1,0 +1,61 @@
+client_id,client_name,industry,region
+1,Client 001,Retail,West
+2,Client 002,Government,South
+3,Client 003,Nonprofit,Midwest
+4,Client 004,Financial Services,West
+5,Client 005,Financial Services,Midwest
+6,Client 006,Government,Midwest
+7,Client 007,Retail,West
+8,Client 008,Nonprofit,Midwest
+9,Client 009,Healthcare,Northeast
+10,Client 010,Retail,Midwest
+11,Client 011,Technology,West
+12,Client 012,Education,Northeast
+13,Client 013,Nonprofit,Midwest
+14,Client 014,Government,Northeast
+15,Client 015,Nonprofit,South
+16,Client 016,Government,Midwest
+17,Client 017,Technology,Midwest
+18,Client 018,Healthcare,Northeast
+19,Client 019,Government,South
+20,Client 020,Financial Services,South
+21,Client 021,Technology,West
+22,Client 022,Manufacturing,Midwest
+23,Client 023,Healthcare,Northeast
+24,Client 024,Education,West
+25,Client 025,Government,South
+26,Client 026,Nonprofit,South
+27,Client 027,Financial Services,Northeast
+28,Client 028,Government,Midwest
+29,Client 029,Technology,West
+30,Client 030,Financial Services,West
+31,Client 031,Financial Services,Midwest
+32,Client 032,Healthcare,West
+33,Client 033,Retail,West
+34,Client 034,Technology,Midwest
+35,Client 035,Education,West
+36,Client 036,Retail,Midwest
+37,Client 037,Government,Northeast
+38,Client 038,Government,South
+39,Client 039,Manufacturing,South
+40,Client 040,Nonprofit,Northeast
+41,Client 041,Healthcare,West
+42,Client 042,Government,Northeast
+43,Client 043,Nonprofit,West
+44,Client 044,Manufacturing,Northeast
+45,Client 045,Retail,West
+46,Client 046,Education,West
+47,Client 047,Financial Services,West
+48,Client 048,Education,South
+49,Client 049,Nonprofit,Midwest
+50,Client 050,Government,South
+51,Client 051,Government,Midwest
+52,Client 052,Healthcare,West
+53,Client 053,Manufacturing,South
+54,Client 054,Financial Services,Midwest
+55,Client 055,Financial Services,South
+56,Client 056,Retail,South
+57,Client 057,Technology,Northeast
+58,Client 058,Healthcare,Northeast
+59,Client 059,Nonprofit,Northeast
+60,Client 060,Nonprofit,Northeast
