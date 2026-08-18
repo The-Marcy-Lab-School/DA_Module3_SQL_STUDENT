@@ -3,6 +3,8 @@
 --
 -- Requirements (see MVP.md on the project-scope branch for the full bar):
 --   - 3 tables minimum, matching the sketch you already wrote
+--   - normalized to AT LEAST 3NF -- see business_questions_and_schema.md's
+--     schema-sketch section for what that actually means per table
 --   - a real PRIMARY KEY on every table
 --   - real FOREIGN KEY constraints expressing the actual relationships in
 --     your data (see data/SOURCE.md for which column really links to which)

@@ -1,8 +1,7 @@
 # SQL & Relational Databases Project
 
-**New here?** Start with `PROJECT_OVERVIEW.md` for what you're building and
-why. This file (`README.md`) is where the step-by-step setup lives — you're
-already in the right place.
+Start with `PROJECT_OVERVIEW.md` for what you're building and why. This
+file (`README.md`) is where the step-by-step setup lives.
 
 **Due:** 1 week, run as a sprint — 5 build days. See `CHECKLIST_TIMELINE.md`
 for the day-by-day pace, what "sprint"/"backlog" mean here, and the full
@@ -61,13 +60,23 @@ schema. Delete the other 3 domain folders from `data/` once you've chosen.
 ## What to do
 
 See `starter/` for the templates you'll actually fill in: a schema-design
-worksheet (write your 4 business questions first, then sketch your schema —
-before any SQL), a `queries.sql` stub with one `-- TODO:` per required
-query, and the flawed-schema critique exercise. `CHECKLIST_TIMELINE.md` has
-the suggested day-by-day pace and the full sequenced checklist. Commit
-incrementally as you go — after your schema is created, again after data is
-loaded, again after your queries pass verification — not one commit at the
-very end.
+worksheet (write your 5 business questions first, then sketch your
+schema — before any SQL, and normalize it to **at least 3NF**), a
+`queries.sql` stub with one `-- TODO:` per required query, and the
+flawed-schema critique exercise. `CHECKLIST_TIMELINE.md` has the suggested
+day-by-day pace and the full sequenced checklist. Commit incrementally as
+you go — after your schema is created, again after data is loaded, again
+after your queries pass verification — not one commit at the very end.
+
+**Running your SQL — `psql` or Python, your choice, but the SQL has to be
+real:** run every query directly via `psql`, or, if you'd rather work in a
+notebook/script, use the given `starter/run_query.py` helper to run a
+query through Python and pull the result into a pandas `DataFrame` — either
+is fine. What's **not** fine: using pandas to actually do the analysis
+(`.describe()`, `.groupby()`, a pandas merge standing in for a join) instead
+of writing the real SQL. Every one of the 5 required queries has to be
+genuine SQL, checked and correct — pandas' only legitimate role here is
+holding a query's already-computed result and, optionally, charting it.
 
 **Where's the exact bar for "done," and what are the optional stretch
 goals?** This repo (your own copy) doesn't include `MVP.md` or

@@ -66,6 +66,22 @@ you get a `postgres=#` (or similar) prompt. If you can't connect, fix that
 now, on Day 1 — don't start designing your schema against a database you
 haven't actually confirmed you can reach.
 
+## (Optional) Running queries through Python instead of `psql`
+
+You don't need this to get started — `psql` alone is completely enough for
+this whole project. If you'd rather run your SQL from Python (e.g. inside
+a notebook, so you can pull a result straight into pandas for a chart),
+install the extra packages now:
+
+```bash
+pip install psycopg2-binary pandas sqlalchemy
+```
+
+Then see `starter/run_query.py` once you're writing queries — it's given,
+working code you can use as-is. See "Running your SQL" in `README.md` for
+the one rule that applies either way: the analysis itself has to be real
+SQL, not pandas standing in for it.
+
 ## What's next
 
 Once `psql` connects for real, go back to `README.md`'s "Your domain and
