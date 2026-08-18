@@ -80,7 +80,9 @@ Synthea's whole purpose (there is no real, public, patient-level healthcare
 dataset that could ethically stand in here — real patient records are
 HIPAA-protected, which is exactly why a project like this can't use one).
 
-- `patients.csv` (1,033 rows) — `patient_id`, `birthdate`,
+- `patients.csv` (1,033 rows) — `patient_id`, `birthdate`, `deathdate`
+  (**154 of 1,033 patients have one — the other 879 are alive as of the
+  data, so this column is genuinely null on purpose, not missing**),
   `marital_status`, `race`, `ethnicity`, `gender`, `city`, `state`, `county`.
 - `facilities.csv` (804 rows) — `facility_id`, `facility_name`, `city`,
   `state`, `zip_code`. (Synthea calls these "organizations" — healthcare
@@ -107,16 +109,18 @@ organization publishes. Generated with `numpy`/`pandas`, seed 42, documented
 here rather than pretending it's real.
 
 - `clients.csv` (60 rows) — `client_id`, `client_name`, `industry`,
-  `region`.
+  `region`. **2 of the 60 clients have zero engagements** — a real
+  left-join case, not an error.
 - `engagements.csv` (220 rows) — `engagement_id`, `client_id` (FK),
-  `service_type`, `partner_assigned`, `start_date`, `end_date` (**27
-  engagements are still ongoing — `end_date` is blank on purpose**, not
-  missing data).
+  `service_type`, `partner_assigned`, `hourly_rate` (varies by
+  `service_type` — Management Consulting bills highest, Audit lowest, real
+  ranges documented in-file), `start_date`, `end_date` (**27 engagements
+  are still ongoing — `end_date` is blank on purpose**, not missing data).
 - `time_entries.csv` (4,000 rows) — `time_entry_id`, `engagement_id` (FK),
   `entry_date`, `hours`, `billable`.
 
 **Planted realism (documented, not hidden):** `hours` is drawn from a
 right-skewed (lognormal) distribution, not a flat range — most entries are
-small, a few are large. **5 rows have a negative `hours` value** (planted
+small, a few are large. **6 rows have a negative `hours` value** (planted
 data-entry errors — real time-tracking systems get these) and **160 rows
 have a missing `hours` value** (~4%).

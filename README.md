@@ -3,8 +3,8 @@
 Start with `PROJECT_OVERVIEW.md` for what you're building and why. This
 file (`README.md`) is where the step-by-step setup lives.
 
-**Due:** 1 week, run as a sprint — 5 build days. See `CHECKLIST_TIMELINE.md`
-for the day-by-day pace, what "sprint"/"backlog" mean here, and the full
+**Due:** 7 days, run as a sprint. See `CHECKLIST_TIMELINE.md` for the
+day-by-day pace, what "sprint"/"backlog" mean here, and the full
 submission checklist.
 
 This repo is a **GitHub template** — a starting point, not something you
@@ -52,21 +52,28 @@ your other early commits.
 ## Your domain and data
 
 See `SCENARIOS.md` and pick **one** of the 4 stakeholder domains. Each
-one's real data is already included at `data/<domain>/` — see
+domain's real data is already included at `data/<domain>/` — see
 `data/SOURCE.md` for exactly what each file is, where it's really from, and
 what's genuinely messy or worth knowing about it before you design your
-schema. Delete the other 3 domain folders from `data/` once you've chosen.
+schema. **Your domain's 7 business questions are given in `SCENARIOS.md`
+too, not yours to write** — each one is deliberately built to require a
+specific SQL technique (a join, a left join, `GROUP BY`/`HAVING`, a CTE, a
+window function, `COALESCE`, and a materialized view answering two more
+questions on top). Delete the other 3 domain folders from `data/` once
+you've chosen.
 
 ## What to do
 
 See `starter/` for the templates you'll actually fill in: a schema-design
-worksheet (write your 5 business questions first, then sketch your
-schema — before any SQL, and normalize it to **at least 3NF**), a
-`queries.sql` stub with one `-- TODO:` per required query, and the
-flawed-schema critique exercise. `CHECKLIST_TIMELINE.md` has the suggested
-day-by-day pace and the full sequenced checklist. Commit incrementally as
-you go — after your schema is created, again after data is loaded, again
-after your queries pass verification — not one commit at the very end.
+worksheet (map your domain's 7 given questions to your schema **before**
+any SQL, and normalize it to **at least 3NF**), a `queries.sql` stub with
+one `-- TODO:` per required query, a query-performance check
+(`query_performance.md` — a real `EXPLAIN ANALYZE` look at your own most
+complex query), and the flawed-schema critique exercise.
+`CHECKLIST_TIMELINE.md` has the suggested day-by-day pace and the full
+sequenced checklist. Commit incrementally as you go — after your schema is
+created, again after data is loaded, again after your queries pass
+verification — not one commit at the very end.
 
 **Running your SQL — `psql` or Python, your choice, but the SQL has to be
 real:** run every query directly via `psql`, or, if you'd rather work in a
@@ -74,9 +81,10 @@ notebook/script, use the given `starter/run_query.py` helper to run a
 query through Python and pull the result into a pandas `DataFrame` — either
 is fine. What's **not** fine: using pandas to actually do the analysis
 (`.describe()`, `.groupby()`, a pandas merge standing in for a join) instead
-of writing the real SQL. Every one of the 5 required queries has to be
-genuine SQL, checked and correct — pandas' only legitimate role here is
-holding a query's already-computed result and, optionally, charting it.
+of writing the real SQL. Every one of the 7 required questions has to be
+answered with genuine SQL, checked and correct — pandas' only legitimate
+role here is holding a query's already-computed result and, optionally,
+charting it.
 
 **Where's the exact bar for "done," and what are the optional stretch
 goals?** This repo (your own copy) doesn't include `MVP.md` or

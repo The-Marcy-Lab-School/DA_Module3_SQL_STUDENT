@@ -1,10 +1,10 @@
-# Business Questions & Schema Design
+# Schema Design
 
 Fill this in **before you write any SQL** — design before code, same
-discipline as every project so far. A strong schema comes from knowing
-exactly what questions it needs to answer; a schema designed first and
-questions written after almost always ends up missing a column or a table
-you actually needed.
+discipline as every project so far. Your domain's 7 business questions are
+given in `SCENARIOS.md` (not yours to write this time — see that file for
+why) — read all 7 for your domain **before** sketching anything below, so
+your schema actually supports every one of them, not just the first few.
 
 ## Your domain
 
@@ -13,23 +13,6 @@ Domain: _______________ (from `SCENARIOS.md`)
 Stakeholder's business problem, in your own words:
 
 > TODO
-
-## Your 5 business questions
-
-Write these first. Each one becomes a real, graded query later — so make
-each one specific enough that you could recognize a right answer if you saw
-one (that's what the later "check it against a sample where you already
-know the answer" step depends on). Across your 5 questions, plan for one
-that genuinely needs a left join (a real "rows that don't have a match on
-the other side" case — look at your domain's data before finalizing this
-one, don't assume) and one that's naturally a ranking/"top N by category"
-question (that's the one you'll answer with a window function).
-
-1. TODO
-2. TODO
-3. TODO
-4. TODO
-5. TODO
 
 ## Your schema sketch (paper or here — before any `CREATE TABLE`)
 
@@ -59,6 +42,23 @@ says so" isn't a reason.
 
 > TODO
 
+## Walk through all 7 questions against your sketch
+
+For each of your domain's 7 questions in `SCENARIOS.md`, name which
+table(s) it touches and which column(s) it actually needs. If a question
+needs a column your sketch doesn't have yet, that's exactly what this step
+is for — fix it now, not after you've already run `CREATE TABLE`.
+
+```
+Q1: TODO
+Q2: TODO
+Q3: TODO
+Q4: TODO
+Q5: TODO
+Q6: TODO
+Q7: TODO
+```
+
 ## Schema design tradeoffs: normalized (3NF) vs. STAR
 
 Your schema above is a normalized, OLTP-style design — the right choice
@@ -79,11 +79,12 @@ abstract:
 - What's the real tradeoff for *this* project — what does your 3NF design
   protect that a STAR schema wouldn't, and what would a STAR schema make
   faster/simpler that your 3NF design doesn't? Not a textbook definition —
-  reason about your actual tables and your actual 5 queries.
+  reason about your actual tables and your actual 7 queries.
 
   > TODO
 
 - Which one actually fits this project's real use case (a one-time
-  analyst answering 5 business questions, not a live dashboard), and why?
+  analyst answering 7 fixed business questions, not a live dashboard), and
+  why?
 
   > TODO
