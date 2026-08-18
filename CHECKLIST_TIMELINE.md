@@ -23,9 +23,10 @@ deliberately not in scope this week, not a list of things you failed to do.
 - [ ] `data/SOURCE.md` read for your domain — what's real, what's genuinely
   missing/messy, and what the real foreign-key relationship actually is
   (it may not be what you'd first assume).
-- [ ] `starter/business_questions_and_schema.md`: your 4 business questions
-  written down **first**, then your 3-table schema sketched — PKs, FKs, at
-  least one real constraint per table — on paper or in the file, before any
+- [ ] `starter/business_questions_and_schema.md`: your **5** business
+  questions written down **first**, then your **3-table-minimum schema,
+  normalized to at least 3NF**, sketched — PKs, FKs, at least one real
+  constraint per table — on paper or in the file, before any
   `CREATE TABLE`.
 
 ## Day 2 — Schema critique, then build your real schema
@@ -36,8 +37,9 @@ deliberately not in scope this week, not a list of things you failed to do.
   > actually enforces the relationships between tables — this is exactly
   > what the critique exercise is designed to catch you noticing (or not).
 - [ ] `starter/schema.sql` written and run for real via `psql` — your own
-  3+ tables created, with real primary keys, real foreign keys, and at
-  least one `NOT NULL`/`CHECK` constraint per table.
+  3+ tables created, **normalized to at least 3NF**, with real primary
+  keys, real foreign keys, and at least one `NOT NULL`/`CHECK` constraint
+  per table.
   > ⚠️ Common mistake: skipping `NOT NULL`/`CHECK` constraints because the
   > data "looks clean" — a constraint is what catches bad data on *insert*,
   > not something you add after you've already found a problem.
@@ -51,7 +53,9 @@ deliberately not in scope this week, not a list of things you failed to do.
   `INSERT`) — confirm row counts in Postgres actually match the source
   CSVs before moving on.
 - [ ] Inner join and left join queries written in `starter/queries.sql`,
-  each answering one of your 4 business questions.
+  each answering one of your 5 business questions. Run these via `psql` or
+  via `starter/run_query.py` — your choice, but the SQL has to be real
+  either way.
 - [ ] Both joins **spot-checked against a small, hand-built sample** where
   you already know the right answer — before trusting the full-table
   result.
@@ -67,13 +71,17 @@ deliberately not in scope this week, not a list of things you failed to do.
 
 **Daily check-in.**
 
-## Day 4 — GROUP BY/HAVING, a CTE, and the read-only role
+## Day 4 — GROUP BY/HAVING, a CTE, a window function, and the read-only role
 
-- [ ] Remaining 2 queries in `starter/queries.sql` written: a `GROUP
+- [ ] Remaining 3 queries in `starter/queries.sql` written: a `GROUP
   BY`/`HAVING` query answering a real "which groups meet some condition"
-  question, and at least one query restructured as a CTE because it
-  genuinely makes a multi-step question more readable.
-- [ ] All 4 queries spot-checked against a known-answer sample, same
+  question, a query restructured as a CTE because it genuinely makes a
+  multi-step question more readable, and a window function query
+  answering a real ranking/"top N by category" question.
+  > ⚠️ Common mistake: reaching for pandas (`.describe()`, `.groupby()`) to
+  > answer one of these instead of writing the real SQL — that's not
+  > allowed even if you're running things through `starter/run_query.py`.
+- [ ] All 5 queries spot-checked against a known-answer sample, same
   discipline as Day 3 — not just the two joins.
 - [ ] `starter/role_setup.md` completed — a real read-only role created,
   granted, and verified (including confirming a write is actually
@@ -82,8 +90,11 @@ deliberately not in scope this week, not a list of things you failed to do.
 
 **Daily check-in.**
 
-## Day 5 — Finish, verify, submit
+## Day 5 — Schema tradeoffs, finish, verify, submit
 
+- [ ] The 3NF-vs-STAR schema design tradeoff section in
+  `starter/business_questions_and_schema.md` completed — reasoned against
+  your own actual tables and queries, not a generic definition of either.
 - [ ] Final pass: every query in `queries.sql` re-run clean against the
   real schema, no leftover scratch queries or debugging output.
 - [ ] `README.md` accurate; repo confirmed **public**.
@@ -110,8 +121,8 @@ repeated here. Details in `ABOVE_AND_BEYOND.md`.
 
 - [ ] Extend your schema to 4-5 tables with a genuine additional
   relationship.
-- [ ] Write a window-function query ranking a category by volume/backlog
-  for your domain.
+- [ ] Actually build the STAR schema from your tradeoff writeup and rewrite
+  1-2 queries against it.
 - [ ] Use DBeaver to generate and export a visual ERD of your own schema.
 - [ ] Run the given-code `above_and_beyond/module4_preview.py` (Module 4
   preview) and write a short reflection on what it shows you.
