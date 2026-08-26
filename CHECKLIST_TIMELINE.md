@@ -111,7 +111,15 @@ deliberately not in scope this week, not a list of things you failed to do.
   your own actual tables and queries, not a generic definition of either.
 - [ ] Final pass: every query in `queries.sql` re-run clean against the
   real schema, no leftover scratch queries or debugging output.
-- [ ] `README.md` accurate; repo confirmed **public**.
+- [ ] **Delete `PROJECT_OVERVIEW.md` and `SCENARIOS.md`** — they explain
+  the assignment, not your project; a real portfolio repo shouldn't have
+  "here's what you were asked to build" sitting in it.
+- [ ] **Replace `README.md`'s content with your own real project README**
+  — write it for someone who's never seen this assignment:
+  - **Business Questions** — the ones your schema was built to answer.
+  - **Schema Design & Rationale** — your real 3NF-vs-star tradeoff call.
+  - **Key Queries & Insights** — what Q1-Q7 actually revealed.
+  - **Recommendations** — what you'd tell a stakeholder to do next.
 - [ ] Final self-check against this checklist before calling it done.
 - [ ] Commit(s) pushed — `git log --oneline` should show real, incremental
   history, not one giant final commit.
