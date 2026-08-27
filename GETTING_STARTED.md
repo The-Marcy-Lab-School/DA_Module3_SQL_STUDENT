@@ -24,7 +24,7 @@ different things:
 This is genuinely new software — nothing earlier in the program has needed
 a real installed database before. You have two real options; pick whichever
 you're more comfortable with, but read the reasoning before you choose,
-since it affects how much of your 5-day sprint gets eaten by setup:
+since it affects how much of your 7-day sprint gets eaten by setup:
 
 ### Option A (recommended): a free hosted instance
 

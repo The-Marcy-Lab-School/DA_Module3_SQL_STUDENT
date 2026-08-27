@@ -39,7 +39,8 @@ deliberately not in scope this week, not a list of things you failed to do.
 - [ ] `starter/schema.sql` written and run for real via `psql` — your own
   3+ tables created, **normalized to at least 3NF**, with real primary
   keys, real foreign keys, and at least one `NOT NULL`/`CHECK` constraint
-  per table.
+  per table, each one chosen on purpose (not just copied in) and explained
+  in `business_questions_and_schema.md` per that file's own prompt.
   > ⚠️ Common mistake: skipping `NOT NULL`/`CHECK` constraints because the
   > data "looks clean" — a constraint is what catches bad data on *insert*,
   > not something you add after you've already found a problem.
@@ -120,6 +121,8 @@ deliberately not in scope this week, not a list of things you failed to do.
   - **Schema Design & Rationale** — your real 3NF-vs-star tradeoff call.
   - **Key Queries & Insights** — what Q1-Q7 actually revealed.
   - **Recommendations** — what you'd tell a stakeholder to do next.
+- [ ] Final push to GitHub — confirm the repo is actually **public** (open
+  it in a private/incognito browser window to check).
 - [ ] Final self-check against this checklist before calling it done.
 - [ ] Commit(s) pushed — `git log --oneline` should show real, incremental
   history, not one giant final commit.
