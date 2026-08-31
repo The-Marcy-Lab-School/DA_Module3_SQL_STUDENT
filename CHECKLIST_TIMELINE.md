@@ -132,12 +132,17 @@ sprint. Backlog items (`ABOVE_AND_BEYOND.md`) are exactly that — backlog.
 Picking one up after Day 7, if you have real time, is a bonus sprint, not
 a requirement of this one.
 
-## After Day 7: peer schema & query review
+## Day 8 — Share-out
 
-Right after Day 7 (or in a separate session), your instructor will run an
-anonymized peer review of schemas and query sets — reviewed as an analyst
-who'd have to extend the database, not as a grader. No extra prep needed —
-just have your repo pushed and public.
+Your instructor schedules this once every submission is in — usually a
+few days after Day 7, not necessarily the next calendar day. Real
+session, not optional: in groups of 3, you'll review 2-3 anonymized
+classmates' `schema.sql`, `queries.sql`, and
+`business_questions_and_schema.md` as an analyst who'd genuinely have to
+extend that database, filling in a shared doc on schema design,
+constraints, join risk, and verification, then reporting patterns back to
+the class. No extra prep needed — just have your repo pushed and public
+— see your instructor for the exact date.
 
 ## Above & Beyond
 

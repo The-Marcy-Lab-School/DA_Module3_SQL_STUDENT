@@ -78,8 +78,9 @@ work your `EXPLAIN ANALYZE` check previews, both revisited for real.
 
 ## Timeline
 
-See `CHECKLIST_TIMELINE.md` for the day-by-day sprint pace and the full
-submission checklist.
+7 days, run as a sprint, plus a required share-out session scheduled
+after. See `CHECKLIST_TIMELINE.md` for the day-by-day sprint pace and the
+full submission checklist.
 
 ## Where to start
 
