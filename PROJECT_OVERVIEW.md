@@ -34,7 +34,7 @@ references an agency. Structuring that correctly — and being able to ask a
 real question across multiple tables with confidence in the answer — is
 what this project is actually testing. It gets used immediately: **Module
 4** connects to the exact database you build here from Python, and
-**Module 7** builds a full analytics layer on top of it — including the
+**Module 8** builds a full analytics layer on top of it — including the
 normalized-vs-STAR tradeoff you write up here, and the query-optimization
 work your `EXPLAIN ANALYZE` check previews, both revisited for real.
 
