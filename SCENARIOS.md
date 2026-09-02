@@ -130,3 +130,41 @@ exists, so this one's built, not sourced).
    estimated revenue per client per service type. Using it: what's each
    client's dominant service type by revenue, and which clients are
    engaged across the most distinct service types?
+
+## Schema Critique Exercise
+
+This one isn't about your own domain — it's a schema a (fictional)
+colleague wrote for a coffee shop's ordering system. Read it and critique
+it for real, in writing, in `answers.md`'s "Schema critique" section.
+
+```sql
+CREATE TABLE customers (
+    customer_id INTEGER,
+    customer_name TEXT,
+    email TEXT
+);
+
+CREATE TABLE orders (
+    order_id INTEGER,
+    customer_name TEXT,
+    order_date DATE,
+    total_amount NUMERIC
+);
+
+CREATE TABLE order_items (
+    order_id INTEGER,
+    product_name TEXT,
+    quantity INTEGER,
+    unit_price NUMERIC
+);
+```
+
+Your colleague also ran this query, saw output that looked plausible, and
+moved on without checking it further:
+
+```sql
+SELECT c.customer_name, SUM(o.total_amount) AS lifetime_spend
+FROM customers c
+JOIN orders o ON c.customer_name = o.customer_name
+GROUP BY c.customer_name;
+```
