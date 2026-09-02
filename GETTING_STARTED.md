@@ -14,17 +14,13 @@ different things:
   the right tool when you intend to contribute changes back to the original
   project — that's not this. Don't use Fork here.
 - **`git clone`** — what you run *after* "Use this template" has created
-  your own new repo, to get a working copy on your own machine. Cloning
-  this template directly (instead of your own copy of it) means you'd be
-  pushing back to Marcy's repo, which you don't have access to and don't
-  want anyway.
+  your own new repo, to get a working copy on your own machine.
 
 ## Installing PostgreSQL
 
 This is genuinely new software — nothing earlier in the program has needed
-a real installed database before. You have two real options; pick whichever
-you're more comfortable with, but read the reasoning before you choose,
-since it affects how much of your 7-day sprint gets eaten by setup:
+a real installed database before. Two real options; pick whichever you're
+more comfortable with:
 
 ### Option A (recommended): a free hosted instance
 
@@ -32,57 +28,59 @@ Create a free PostgreSQL project at **[Supabase](https://supabase.com)** or
 **[Neon](https://neon.tech)** — both have a genuinely free tier meant for
 exactly this kind of project. Either one gives you a connection string
 (host, port, database name, username, password) after you create a project
-— save it somewhere you can find it, you'll need it every time you connect.
+— save it somewhere you can find it.
 
-**Why this is the recommended default:** installing Postgres locally is a
-different process on every operating system (Homebrew on macOS, an
-installer on Windows, `apt`/`dnf` on Linux), and getting it wrong (a
-service that won't start, a `PATH` that doesn't include `psql`, a password
-you forgot you set) is exactly the kind of setup friction that eats real
-project time without teaching you any of this project's actual graded
-skills. A hosted instance skips all of that — you're doing real SQL against
-a real, live Postgres database either way.
+**Why this is the recommended default:** it skips local install friction
+entirely — you're doing real SQL against a real, live Postgres database
+either way, without a service that won't start or a forgotten local
+password eating your project time.
 
-### Option B: install it locally
+### Option B: install it locally (macOS)
 
-- **macOS:** [Postgres.app](https://postgresapp.com) is the simplest
-  route — download, open, click "Initialize." It adds `psql` to your
-  terminal once you follow its own "Configure your `$PATH`" step (the app
-  shows you exactly what to add — the app's own instructions are the ones
-  to follow here, not something to guess at).
-- **Windows/Linux:** use the official installer at
-  [postgresql.org/download](https://www.postgresql.org/download/) for your
-  OS — pick the current stable major version.
+[Postgres.app](https://postgresapp.com) is the simplest route — download,
+open, click "Initialize." Then get your connection info from the app's own
+window (host `localhost`, default port `5432`, default database/user
+`postgres`, no password needed for a fresh local install).
 
 ### Either way, confirm it works
 
-```bash
-psql --version
-```
-
-Then connect for real (hosted: use the connection string your provider
-gave you; local: `psql postgres` usually works out of the box) and confirm
-you get a `postgres=#` (or similar) prompt. If you can't connect, fix that
-now, on Day 1 — don't start designing your schema against a database you
-haven't actually confirmed you can reach.
-
-## (Optional) Running queries through Python instead of `psql`
-
-You don't need this to get started — `psql` alone is completely enough for
-this whole project. If you'd rather run your SQL from Python (e.g. inside
-a notebook, so you can pull a result straight into pandas for a chart),
-install the extra packages now:
+You won't use the `psql` command-line tool for this project — every
+statement you write gets run through Python instead (see below). Confirm
+your database is actually reachable by setting `DATABASE_URL` and running
+one real query through `starter/db.py`:
 
 ```bash
-pip install psycopg2-binary pandas sqlalchemy
+export DATABASE_URL="postgresql://user:password@host:port/dbname"
+python3 -c "from starter.db import run_query; print(run_query('SELECT 1;'))"
 ```
 
-Then see `starter/run_query.py` once you're writing queries — it's given,
-working code you can use as-is. See "Running your SQL" in `README.md` for
-the one rule that applies either way: the analysis itself has to be real
-SQL, not pandas standing in for it.
+If that doesn't print back a real result, fix your connection now, on Day
+1 — don't start designing your schema against a database you haven't
+actually confirmed you can reach.
+
+## Running your SQL through Python
+
+This project doesn't use `psql` at all. You write real SQL in real `.sql`
+files in VSCode (`starter/schema.sql`, `starter/queries.sql`), and run them
+through `starter/db.py` — given code, you don't write this file yourself:
+
+```bash
+pip install psycopg2-binary pandas sqlalchemy matplotlib
+```
+
+```bash
+python3 starter/db.py starter/schema.sql    # creates your tables
+python3 starter/db.py starter/queries.sql   # runs all 7 queries, prints each result
+```
+
+`starter/db.py` also has `load_csv()` (for loading your domain's data) and
+`run_query()` (for running one query string at a time from a Python
+session) — see that file's own docstring for the exact usage. The one rule
+that applies no matter how you run things: **the analysis itself has to be
+real SQL** — pandas may only hold/visualize an already-computed result
+(`starter/visuals.py` is where that happens).
 
 ## What's next
 
-Once `psql` connects for real, go back to `README.md`'s "Your domain and
+Once `DATABASE_URL` connects for real, go to `README.md`'s "Your domain and
 data" section and pick a domain from `SCENARIOS.md`.
