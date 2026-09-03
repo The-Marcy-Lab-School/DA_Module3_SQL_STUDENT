@@ -144,6 +144,11 @@ public — see your instructor for the exact date.
 Only the additional items — everything above still applies and isn't
 repeated here. Details in `ABOVE_AND_BEYOND.md`.
 
+**This section's own given code (`above_and_beyond/`) isn't in your repo
+by default** — it lives on this template's `project-scope` branch, same
+as `MVP.md`/`ABOVE_AND_BEYOND.md`. Ask your instructor for that branch's
+link if you want to pick any of this up.
+
 - [ ] Extend your schema to 4-5 tables with a genuine additional
   relationship.
 - [ ] Actually build the STAR schema from your tradeoff writeup and rewrite
